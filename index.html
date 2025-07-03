@@ -3,55 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hamumeron</title>
+  <title>Hamumeron | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
-    body {
-      background: radial-gradient(ellipse at center, #0f172a, #020617);
-      font-family: 'Segoe UI', sans-serif;
-    }
+  body {
+    background: radial-gradient(ellipse at center, #0f172a, #020617);
+    font-family: 'Segoe UI', sans-serif;
+  }
 
-    .card {
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  .card {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    will-change: transform;
+  }
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    }
+  .card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
 
-    .modal {
-      backdrop-filter: blur(6px);
-    }
+.card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
 
-    @keyframes fadeIn {
-      0% { transform: scale(0.9); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
 
-    .animate-fadeIn {
-      animation: fadeIn 0.3s ease-out;
-    }
-  </style>
+  .animate-fadeIn {
+    animation: fadeIn 0.4s ease-out;
+  }
+    @keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.pop {
+  animation: pop 0.25s ease;
+}
+
+</style>
 </head>
-<body class="text-white">
+<body class="text-white overflow-x-hidden">
 
+  
   <header class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md shadow-sm">
     <nav class="flex justify-between items-center max-w-6xl mx-auto px-6 py-4">
       <h1 class="text-lg font-bold tracking-widest">Hamumeron</h1>
       <ul class="flex gap-6 text-sm">
-        <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+        <li><a href="#home" class="hover:text-blue-400 transition">Home</a></li>
         <li><a href="#projects" class="hover:text-blue-400 transition">Projects</a></li>
         <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="flex items-center justify-center min-h-screen px-4 pt-32">
+
+  <section id="home" class="h-screen flex items-center justify-center text-center px-4 pt-20">
+    <div>
+      <h2 class="text-5xl font-bold mb-4">Hamumeron</h2>
+      <p class="text-xl text-gray-300 mb-6">Creative Developer | Web design and service development | Content creator</p>
+      <p class="text-gray-400">Create a world-changing web experience with the latest technology and design.</p>
+    </div>
+  </section>
+
+  
+  <section class="flex items-center justify-center px-4 pb-20">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center w-full max-w-6xl">
       <div onclick="openModal('modal1')" class="card rounded-xl p-6 cursor-pointer">
         <h2 class="text-2xl font-bold">About Me</h2>
@@ -63,31 +84,43 @@
         <h2 class="text-2xl font-bold">Contact</h2>
       </div>
     </div>
-  </main>
+  </section>
+
 
   <div id="modal1" class="modal hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
     <div class="bg-slate-900 p-8 rounded-2xl w-[90%] md:w-[40%] relative animate-fadeIn">
       <button onclick="closeModal('modal1')" class="absolute top-4 right-4 text-white text-xl">✕</button>
       <h2 class="text-3xl font-semibold mb-4">About Me</h2>
-      <p>Hello, I'm Hamumeron. I mainly work on website development.</p>
+      <p>Hello, I'm hamumeron. I mainly develop websites and proxies.</p>
     </div>
   </div>
-
   <div id="modal2" class="modal hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
     <div class="bg-slate-900 p-8 rounded-2xl w-[90%] md:w-[40%] relative animate-fadeIn">
       <button onclick="closeModal('modal2')" class="absolute top-4 right-4 text-white text-xl">✕</button>
       <h2 class="text-3xl font-semibold mb-4">Projects</h2>
-      <p>Here you can explore some of my latest web-based projects and experiments.</p>
+      <p>We are developing various services such as multiple web tools, server hosting, Discord Bot, etc. Some of them are available on GitHub and Cloudflare Pages.</p>
     </div>
   </div>
-
   <div id="modal3" class="modal hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
     <div class="bg-slate-900 p-8 rounded-2xl w-[90%] md:w-[40%] relative animate-fadeIn">
       <button onclick="closeModal('modal3')" class="absolute top-4 right-4 text-white text-xl">✕</button>
       <h2 class="text-3xl font-semibold mb-4">Contact</h2>
-      <p>Feel free to contact me through email or social platforms.</p>
+      <p>Feel free to contact us on Discord or by email</p>
     </div>
   </div>
+
+
+  <footer id="contact" class="bg-black/20 backdrop-blur-md py-8 px-6 text-center text-sm text-gray-400">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-lg font-semibold mb-2">My Discord</p>
+      <div class="inline-flex items-center justify-center gap-3 px-4 py-2 rounded-lg bg-slate-800/60 shadow-md backdrop-blur">
+        <span class="text-white font-bold">Hamumeron</span>
+        <span class="text-blue-400">nama86meron</span>
+      </div>
+      <p class="mt-4 text-xs">© 2025 Hamumeron. All rights reserved.</p>
+    </div>
+  </footer>
+
 
   <script>
     function openModal(id) {
@@ -97,13 +130,30 @@
       document.getElementById(id).classList.add('hidden');
     }
 
+
     document.addEventListener('DOMContentLoaded', () => {
+      gsap.from("#home div", {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+      });
+
       gsap.from(".card", {
         y: 50,
         opacity: 0,
         duration: 1,
-        stagger: 0.2,
-        ease: "power3.out"
+        stagger: 0.3,
+        ease: "power3.out",
+        delay: 0.5
+      });
+
+      gsap.from("footer", {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        delay: 1.5,
+        ease: "power2.out"
       });
     });
   </script>
